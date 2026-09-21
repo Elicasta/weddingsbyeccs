@@ -1,48 +1,81 @@
 # Weddings by ECCS
 
-Private, reusable wedding proposal site for Emma Cast Creative / EC Creative Studios.
+Reusable private wedding proposal system for Emma Cast Creative / EC Creative Studios.
 
-## Current proposal
+## URL model
 
-Cristina Lopez  
-November 12, 2027  
-St. Augustine Catholic Church, Coral Gables, Florida
+One deployed site can serve a separate custom proposal for every wedding client:
 
-## Collection structure
+- `/cristina`
+- `/taylor`
+- `/jordan-and-maya`
 
-- Signature · 8 hours · $8,950
-- Atelier · 10 hours · $10,950
-- Curated · 12 hours · $13,950
+With the custom domain connected in Vercel, those become:
 
-The current proposal is built around coordinated photography + cinematography coverage.
+- `weddingsbyeccs.eccreativestudios.com/cristina`
+- `weddingsbyeccs.eccreativestudios.com/taylor`
 
-## Reusing this site
+The shared design and pricing live once. Client-specific content is loaded from the URL slug.
 
-Most client-specific copy and pricing lives in `proposal-data.js`.
+## Shared template
 
-Update:
+`template-data.js`
 
-- `client`
-- `heroIntro`
-- `vision`
-- `priorities`
-- `recommendation`
-- `collections`
+This contains the standard ECCS photography collections and optional film add-ons. Update this file when pricing or package deliverables change. Every client proposal inherits the update.
 
-The page renders the collection options automatically from that file.
+## Client proposals
 
-## Design
+Client files live in:
 
-Warm editorial palette based on Cristina's inquiry:
+`clients/<slug>.js`
 
-- ivory
-- champagne
-- taupe
-- espresso
-- caramel
+Cristina is currently:
 
-The site is mobile-first, no-indexed, and designed as a private proposal rather than a public pricing page.
+`clients/cristina.js`
 
-## Images
+A client file controls:
 
-The current build references Emma Cast wedding portfolio images already stored in the `taylorwedding` repository. Replace those URLs with final portfolio assets when the image set for the shared wedding proposal system is chosen.
+- name
+- wedding date
+- venue
+- location
+- guest count
+- hero copy
+- visual direction
+- priorities
+- recommended photography collection
+- recommended film add-on
+
+## Creating a new client
+
+1. Copy `clients/cristina.js`.
+2. Rename the copy to the desired URL slug, for example `clients/taylor.js`.
+3. Update the client data and recommendation.
+4. Push the file.
+
+The new proposal is then available at `/taylor` without creating another website or repository.
+
+## Current collection structure
+
+Photography:
+
+- Classic Collection · 8 hours · $4,500
+- Full Day · 10 hours · $5,500
+- Legacy Collection · 12 hours · $6,750
+
+Optional film:
+
+- Classic Film · 8 hours · +$3,000
+- Luxe Film · 10 hours · +$4,000
+- Legacy Film · 12 hours · +$5,000
+- Photography Only · $0
+
+## Deployment
+
+Deploy this repository once to Vercel and attach:
+
+`weddingsbyeccs.eccreativestudios.com`
+
+Vercel rewrites client slugs to the shared proposal shell while static files continue to load normally.
+
+The site sends `noindex, nofollow, noarchive` headers because these are private proposals, not public pricing pages.
