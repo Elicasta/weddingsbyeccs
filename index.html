@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <meta name="theme-color" content="#f4efe7" />
+  <meta name="description" content="A private wedding photography and film proposal by Emma Cast Creative." />
+  <title>Wedding Story | Emma Cast Creative</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script defer src="./proposal-data.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#proposal">Skip to proposal</a>
+
+  <div class="proposal-ribbon">
+    <span>Private Wedding Proposal</span>
+    <span aria-hidden="true">·</span>
+    <span id="ribbon-date">November 12, 2027</span>
+  </div>
+
+  <header class="site-header" id="top">
+    <nav class="nav shell" aria-label="Proposal navigation">
+      <a class="brand" href="#top" aria-label="Emma Cast Creative">
+        <span>Emma Cast</span>
+        <small>Weddings</small>
+      </a>
+
+      <div class="nav-links">
+        <a href="#collections">Collections</a>
+        <a href="#experience">Experience</a>
+        <a class="nav-cta" href="#reserve">Reserve</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="proposal">
+    <section class="hero shell">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">An Emma Cast Wedding Story</p>
+        <h1>
+          <span id="client-name">Cristina</span>
+          <em>your story, preserved.</em>
+        </h1>
+
+        <p class="hero-intro" id="hero-intro">
+          Romantic, timeless, and rooted in the people who matter most.
+        </p>
+
+        <div class="hero-meta">
+          <span id="wedding-date">November 12, 2027</span>
+          <span id="venue">St. Augustine Catholic Church</span>
+          <span id="location">Coral Gables, Florida</span>
+        </div>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#collections">Explore Your Collections</a>
+          <a class="text-link" href="#vision">Your Vision</a>
+        </div>
+      </div>
+
+      <figure class="hero-photo reveal">
+        <img
+          id="hero-image"
+          src="https://raw.githubusercontent.com/Elicasta/taylorwedding/main/assets/charleston-couple.jpg"
+          alt="Emma Cast wedding portrait"
+          fetchpriority="high"
+        />
+        <figcaption>Photographs + film that feel like the day itself.</figcaption>
+      </figure>
+    </section>
+
+    <section class="statement" id="vision">
+      <div class="statement-inner shell reveal">
+        <p class="eyebrow">What You Told Us</p>
+        <blockquote id="vision-copy">
+          You want the photographs, the voices, the vows, the family, and the in-between moments.
+          <em>Not just how it looked. How it felt.</em>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="editorial-image reveal" aria-label="Wedding editorial photograph">
+      <img
+        src="https://raw.githubusercontent.com/Elicasta/taylorwedding/main/assets/charleston-hero.jpg"
+        alt="Emma Cast wedding party editorial"
+        loading="lazy"
+      />
+      <div class="image-caption shell">
+        <span>Candid moments · Family · Ceremony · Vows · Film</span>
+        <span id="guest-count">75–150 guests</span>
+      </div>
+    </section>
+
+    <section class="section shell" id="collections">
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow">Chapter One</p>
+          <h2>Your Wedding Collection</h2>
+        </div>
+        <p>
+          Three levels of coverage, all built around one coordinated photo + film team.
+          Choose the amount of space your wedding day needs.
+        </p>
+      </div>
+
+      <div class="collections" id="collection-list" aria-live="polite"></div>
+
+      <p class="pricing-note reveal">
+        Collections are designed as photo + film experiences. Travel, multi-day events, rehearsal coverage,
+        and custom production can be added when needed.
+      </p>
+    </section>
+
+    <section class="recommendation">
+      <div class="shell recommendation-grid">
+        <div class="recommendation-title reveal">
+          <p class="eyebrow">For Your Day</p>
+          <h2 id="recommendation-title">Our starting point: Atelier.</h2>
+        </div>
+        <div class="recommendation-copy reveal">
+          <p id="recommendation-copy">
+            Based on your guest count, ceremony priorities, and interest in full-day coverage,
+            ten hours gives the day enough room without forcing the timeline.
+          </p>
+          <a class="text-link light" href="#reserve">Talk Through the Recommendation</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell priorities-section">
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow">Chapter Two</p>
+          <h2>The Story We’re Protecting</h2>
+        </div>
+        <p>
+          The collection is only useful if it protects the parts of the day you actually care about.
+        </p>
+      </div>
+
+      <div class="priority-grid" id="priority-list"></div>
+    </section>
+
+    <section class="experience" id="experience">
+      <div class="shell">
+        <div class="section-heading experience-heading reveal">
+          <div>
+            <p class="eyebrow">Chapter Three</p>
+            <h2>From Inquiry to Delivery</h2>
+          </div>
+          <p>
+            The goal is simple: by the time the wedding arrives, the photo + film side should already feel handled.
+          </p>
+        </div>
+
+        <div class="steps">
+          <article class="step reveal">
+            <span>01</span>
+            <h3>Reserve</h3>
+            <p>Select your collection, sign your agreement, and submit the retainer to reserve the date.</p>
+          </article>
+          <article class="step reveal">
+            <span>02</span>
+            <h3>Engagement</h3>
+            <p>We photograph your engagement story and learn what feels natural for the two of you.</p>
+          </article>
+          <article class="step reveal">
+            <span>03</span>
+            <h3>Plan</h3>
+            <p>We build the photo + film timeline around light, family, ceremony, travel, and the moments that matter.</p>
+          </article>
+          <article class="step reveal">
+            <span>04</span>
+            <h3>Wedding Day</h3>
+            <p>You experience it. Our team works together to preserve it without turning the day into a production set.</p>
+          </article>
+          <article class="step reveal">
+            <span>05</span>
+            <h3>Delivery</h3>
+            <p>Your photographs and films are edited as one story and delivered through a private online experience.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq shell section">
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow">A Few Details</p>
+          <h2>Questions Before You Choose</h2>
+        </div>
+      </div>
+
+      <div class="faq-list">
+        <details class="reveal">
+          <summary>Why 8, 10, and 12 hours?</summary>
+          <p>Those windows cover the way most full wedding days actually unfold. Eight hours protects the core story, ten gives the day breathing room, and twelve is built for long timelines, multiple locations, or coverage through the final exit.</p>
+        </details>
+        <details class="reveal">
+          <summary>Do you record ceremony audio?</summary>
+          <p>Yes. Clear vows and ceremony audio are treated as part of the story, not an afterthought. The exact documentary edits included depend on the collection.</p>
+        </details>
+        <details class="reveal">
+          <summary>Can we add rehearsal dinner or welcome party coverage?</summary>
+          <p>Yes. Multi-day coverage is quoted separately so you only add it when the weekend actually needs it.</p>
+        </details>
+        <details class="reveal">
+          <summary>Can the collection be customized?</summary>
+          <p>Yes. The three collections create a clean starting point. If your timeline needs something different, we can build around the day rather than forcing the day into a package.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="reserve" id="reserve">
+      <div class="shell reserve-grid">
+        <figure class="reserve-photo reveal">
+          <img
+            src="https://raw.githubusercontent.com/Elicasta/taylorwedding/main/assets/charleston-veil-bw.jpg"
+            alt="Black and white Emma Cast bridal portrait"
+            loading="lazy"
+          />
+        </figure>
+
+        <div class="reserve-copy reveal">
+          <p class="eyebrow">Reserve Your Story</p>
+          <h2>November 12, 2027</h2>
+          <p id="reserve-copy">
+            Cristina, when you’re ready, choose the collection that feels closest to the day you’re planning.
+            We can fine-tune the timeline together before anything is finalized.
+          </p>
+          <a
+            id="reserve-link"
+            class="button button-primary"
+            href="mailto:hello@eccreativestudios.com?subject=Cristina%20Lopez%20Wedding%20Collection"
+          >
+            Choose Your Collection
+          </a>
+          <p class="contact-note">hello@eccreativestudios.com · (786) 253-2995 · Miami, Florida</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <div class="footer-brand">
+        <strong>Emma Cast</strong>
+        <span>Creative</span>
+      </div>
+      <p id="footer-client">Cristina Lopez · Private Wedding Proposal</p>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
