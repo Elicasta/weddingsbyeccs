@@ -57,6 +57,11 @@ function setText(id, value) {
   if (el && value !== undefined && value !== null) el.textContent = value;
 }
 
+function setNodeText(selector, value) {
+  const el = document.querySelector(selector);
+  if (el && value !== undefined && value !== null) el.textContent = value;
+}
+
 function renderList(items) {
   return items.map((item) => `<li>${item}</li>`).join("");
 }
@@ -64,6 +69,7 @@ function renderList(items) {
 function collectionCard(item, type, recommendedName) {
   const isVideo = type === "video";
   const isRecommended = item.name === recommendedName;
+
   const includes = item.includes?.length
     ? `
       <div class="collection-includes">
@@ -91,6 +97,7 @@ function collectionCard(item, type, recommendedName) {
           ${item.subtitle ? `<p class="collection-subtitle">${item.subtitle}</p>` : ""}
           <p class="collection-tone">${item.tone}</p>
         </div>
+
         <div class="collection-price">
           <span>${item.hours}</span>
           <strong>${item.priceDisplay}</strong>
@@ -107,17 +114,37 @@ function collectionCard(item, type, recommendedName) {
   `;
 }
 
+function requestQuoteHref(proposal) {
+  const subject = encodeURIComponent(
+    `${proposal.client.fullName} · ${proposal.client.date} · Wedding Quote`
+  );
+
+  const body = encodeURIComponent(
+    [
+      "Hi Emma,",
+      "",
+      "I reviewed my proposal and I’m ready to talk through the options and have my official quote prepared.",
+      "",
+      `Name: ${proposal.client.fullName}`,
+      `Wedding Date: ${proposal.client.date}`,
+      "",
+      "Thank you!"
+    ].join("\n")
+  );
+
+  return `mailto:hello@eccreativestudios.com?subject=${subject}&body=${body}`;
+}
+
 function initializeProposal(clientData) {
   const proposal = {
     ...template,
     ...clientData,
-    photoCollections: template.photoCollections,
-    videoAddons: template.videoAddons
+    photoCollections: clientData.photoCollections || template.photoCollections,
+    videoAddons: clientData.videoAddons || template.videoAddons
   };
 
-  if (!proposal.quoteUrl) {
-    throw new Error(`Client proposal "${proposal.slug}" is missing quoteUrl.`);
-  }
+  const copy = proposal.pageCopy || {};
+  const hasQuote = Boolean(proposal.quoteUrl);
 
   document.title = `${proposal.client.firstName}'s Wedding Story | Emma Cast Creative`;
 
@@ -127,19 +154,32 @@ function initializeProposal(clientData) {
   setText("venue", proposal.client.venue);
   setText("location", proposal.client.location);
   setText("guest-count", proposal.client.guestCount);
-  setText("hero-intro", proposal.heroIntro);
+  setText("hero-intro", copy.heroIntro || proposal.heroIntro);
   setText("footer-client", `${proposal.client.fullName} · Private Wedding Proposal`);
   setText("recommendation-eyebrow", `For ${proposal.client.firstName}`);
   setText("recommendation-title", proposal.recommendation.title);
   setText("recommendation-copy", proposal.recommendation.copy);
-  setText(
-    "reserve-copy",
-    `${proposal.client.firstName}, your final selections happen inside your official quote so your package, add-ons, and total always stay together in one place.`
-  );
+
+  setNodeText(".hero .eyebrow", copy.heroEyebrow);
+  setNodeText(".hero h1 em", copy.heroTitleTail);
+  setNodeText(".hero-photo figcaption", copy.heroCaption);
+
+  setNodeText("#photography .chapter-heading .eyebrow", copy.photoEyebrow);
+  setNodeText("#photography .chapter-heading h2", copy.photoTitle);
+  setNodeText("#photography .chapter-heading > p:last-child", copy.photoIntro);
+
+  setNodeText("#film .chapter-heading .eyebrow", copy.filmEyebrow);
+  setNodeText("#film .chapter-heading h2", copy.filmTitle);
+  setNodeText("#film .chapter-heading > p:last-child", copy.filmIntro);
+
+  setNodeText(".reserve-copy > .eyebrow", copy.reserveEyebrow);
+  setNodeText(".reserve-copy > h2", copy.reserveTitle);
 
   const vision = byId("vision-copy");
-  if (vision) {
-    vision.innerHTML = `${proposal.vision} <em>Not just a record of the day, but the feeling of it.</em>`;
+  const visionLead = copy.vision || proposal.vision;
+  const visionTail = copy.visionTail || "Not just a record of the day, but the feeling of it.";
+  if (vision && visionLead) {
+    vision.innerHTML = `${visionLead} <em>${visionTail}</em>`;
   }
 
   const photoList = byId("photo-list");
@@ -148,10 +188,15 @@ function initializeProposal(clientData) {
     .join("");
 
   const videoList = byId("video-list");
-  videoList.innerHTML = proposal.videoAddons
-    .filter((item) => item.id !== "none")
+  const visibleVideoAddons = proposal.videoAddons.filter((item) => item.id !== "none");
+  videoList.innerHTML = visibleVideoAddons
     .map((item) => collectionCard(item, "video", proposal.recommendation.videoAddon))
     .join("");
+
+  const filmSection = byId("film");
+  if (!visibleVideoAddons.length && filmSection) {
+    filmSection.hidden = true;
+  }
 
   const priorityList = byId("priority-list");
   priorityList.innerHTML = "";
@@ -166,11 +211,63 @@ function initializeProposal(clientData) {
     priorityList.appendChild(article);
   });
 
+  const quoteHref = hasQuote ? proposal.quoteUrl : requestQuoteHref(proposal);
+  const fallbackLabel = copy.quoteButtonLabel || (hasQuote ? "Open Your Quote" : "Request Your Official Quote");
+
   document.querySelectorAll(".quote-link").forEach((link) => {
-    link.href = proposal.quoteUrl;
-    link.target = "_blank";
-    link.rel = "noopener";
+    link.href = quoteHref;
+
+    if (hasQuote) {
+      link.target = "_blank";
+      link.rel = "noopener";
+    } else {
+      link.removeAttribute("target");
+      link.removeAttribute("rel");
+      link.textContent = fallbackLabel;
+    }
   });
+
+  const reserveLink = byId("reserve-link");
+  if (reserveLink && copy.quoteButtonLabel) {
+    reserveLink.textContent = copy.quoteButtonLabel;
+  }
+
+  setText(
+    "reserve-copy",
+    copy.reserveCopy ||
+      (hasQuote
+        ? `${proposal.client.firstName}, your final selections happen inside your official quote so your package, add-ons, and total always stay together in one place.`
+        : `${proposal.client.firstName}, review the collections and let us know what feels closest to your day. We’ll prepare your official quote from there.`)
+  );
+
+  const handoffSteps = document.querySelectorAll(".quote-handoff > div strong");
+  if (!hasQuote && handoffSteps.length >= 3) {
+    handoffSteps[0].textContent = "Review the elopement options";
+    handoffSteps[1].textContent = "Tell us what feels right";
+    handoffSteps[2].textContent = "We’ll prepare your official quote";
+  }
+
+  const sourceNote = document.querySelector(".quote-source-note");
+  if (sourceNote) {
+    sourceNote.textContent = hasQuote
+      ? "Your quote opens in a new tab. Final package selections and totals are confirmed there."
+      : "Your final selections and total will be confirmed in the official quote we prepare for you.";
+  }
+
+  const steps = document.querySelectorAll(".steps .step");
+  if (!hasQuote && steps.length >= 3) {
+    steps[0].querySelector("h3").textContent = "Explore";
+    steps[0].querySelector("p").textContent =
+      "Use this page to compare the coverage options and see the direction we think best fits your day.";
+
+    steps[1].querySelector("h3").textContent = "Tell Us";
+    steps[1].querySelector("p").textContent =
+      "Let us know which photography option feels right and whether you want to add film.";
+
+    steps[2].querySelector("h3").textContent = "Quote";
+    steps[2].querySelector("p").textContent =
+      "We’ll prepare the official quote with your final collection, add-ons, and investment in one place.";
+  }
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
