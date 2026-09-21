@@ -5,20 +5,150 @@ if (!proposal) {
 }
 
 const byId = (id) => document.getElementById(id);
+const money = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+  minimumFractionDigits: 2
+});
+
+let selectedPhotoId =
+  proposal.photoCollections.find((item) => item.name === proposal.recommendation.photoCollection)?.id ||
+  proposal.photoCollections[0].id;
+
+let selectedVideoId =
+  proposal.videoAddons.find((item) => item.name === proposal.recommendation.videoAddon)?.id ||
+  "none";
 
 function setText(id, value) {
   const el = byId(id);
-  if (el && value) el.textContent = value;
+  if (el && value !== undefined && value !== null) el.textContent = value;
 }
 
-function mailtoFor(collectionName) {
+function renderList(items) {
+  return items.map((item) => `<li>${item}</li>`).join("");
+}
+
+function collectionCard(item, type) {
+  const isVideo = type === "video";
+  const includes = item.includes?.length
+    ? `
+      <div class="collection-includes">
+        <h4>${isVideo ? "Film Add-On Includes" : "Your Experience Includes"}</h4>
+        <ul>${renderList(item.includes)}</ul>
+      </div>
+    `
+    : "";
+
+  const ideal = item.idealFor?.length
+    ? `
+      <div class="collection-ideal">
+        <h4>Perfect For</h4>
+        <ul>${renderList(item.idealFor)}</ul>
+      </div>
+    `
+    : "";
+
+  return `
+    <article class="collection ${isVideo ? "video-card" : ""} ${item.featured ? "featured" : ""}" data-${type}="${item.id}">
+      <div class="collection-top">
+        <div>
+          <p class="collection-index">${item.numeral}</p>
+          <h3>${item.name}</h3>
+          ${item.subtitle ? `<p class="collection-subtitle">${item.subtitle}</p>` : ""}
+          <p class="collection-tone">${item.tone}</p>
+        </div>
+        <div class="collection-price">
+          <span>${item.hours}</span>
+          <strong>${item.priceDisplay}</strong>
+        </div>
+      </div>
+
+      <p class="collection-description">${item.description}</p>
+
+      <div class="collection-details ${ideal ? "" : "single-column"}">
+        ${ideal}
+        ${includes}
+      </div>
+
+      <button class="select-collection" type="button" aria-pressed="false" data-select="${type}">
+        ${isVideo ? (item.id === "none" ? "Photography Only" : `Add ${item.name}`) : `Select ${item.name}`}
+      </button>
+    </article>
+  `;
+}
+
+function mailtoFor(photo, video) {
+  const hasVideo = video && video.id !== "none";
   const subject = encodeURIComponent(
-    `${proposal.client.fullName} · ${collectionName} Wedding Collection`
+    `${proposal.client.fullName} · Wedding Collection Selection`
   );
-  const body = encodeURIComponent(
-    `Hi Emma,\n\nI'd like to move forward with the ${collectionName} collection for our wedding on ${proposal.client.date}.\n\nThank you,\n${proposal.client.firstName}`
-  );
-  return `mailto:hello@eccreativestudios.com?subject=${subject}&body=${body}`;
+
+  const lines = [
+    "Hi Emma,",
+    "",
+    "I'd like to move forward with the following wedding collection:",
+    "",
+    `Photography: ${photo.name} · ${photo.hours} · ${photo.priceDisplay}`,
+    hasVideo
+      ? `Film Add-On: ${video.name} · ${video.hours} · ${video.priceDisplay}`
+      : "Film Add-On: Photography only",
+    `Total: ${money.format(photo.price + (video?.price || 0))}`,
+    "",
+    `Wedding Date: ${proposal.client.date}`,
+    "",
+    "Thank you,",
+    proposal.client.firstName
+  ];
+
+  return `mailto:hello@eccreativestudios.com?subject=${subject}&body=${encodeURIComponent(lines.join("\n"))}`;
+}
+
+function updateSelection() {
+  const photo = proposal.photoCollections.find((item) => item.id === selectedPhotoId);
+  const video = proposal.videoAddons.find((item) => item.id === selectedVideoId);
+
+  if (!photo || !video) return;
+
+  document.querySelectorAll("[data-photo]").forEach((card) => {
+    const active = card.dataset.photo === selectedPhotoId;
+    card.classList.toggle("is-selected", active);
+    card.querySelector(".select-collection")?.setAttribute("aria-pressed", String(active));
+  });
+
+  document.querySelectorAll("[data-video]").forEach((card) => {
+    const active = card.dataset.video === selectedVideoId;
+    card.classList.toggle("is-selected", active);
+    card.querySelector(".select-collection")?.setAttribute("aria-pressed", String(active));
+  });
+
+  const hasVideo = video.id !== "none";
+  const title = hasVideo ? `${photo.name} + ${video.name}` : photo.name;
+
+  setText("selection-title", title);
+  setText("selected-photo", `${photo.name} · ${photo.hours}`);
+  setText("selected-photo-price", photo.priceDisplay);
+  setText("selected-video", hasVideo ? `${video.name} · ${video.hours}` : "Photography Only");
+  setText("selected-video-price", hasVideo ? video.priceDisplay : "$0.00");
+  setText("selected-total", money.format(photo.price + video.price));
+
+  const reserveLink = byId("reserve-link");
+  reserveLink.href = mailtoFor(photo, video);
+}
+
+function selectPhoto(id, scroll = false) {
+  selectedPhotoId = id;
+  updateSelection();
+  if (scroll) {
+    byId("film")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
+function selectVideo(id, scroll = false) {
+  selectedVideoId = id;
+  updateSelection();
+  if (scroll) {
+    byId("reserve")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 }
 
 document.title = `${proposal.client.firstName}'s Wedding Story | Emma Cast Creative`;
@@ -36,19 +166,31 @@ setText("recommendation-copy", proposal.recommendation.copy);
 
 const vision = byId("vision-copy");
 if (vision) {
-  vision.innerHTML = `${proposal.vision} <em>Not just how it looked. How it felt.</em>`;
+  vision.innerHTML = `${proposal.vision} <em>Not just a record of the day, but the feeling of it.</em>`;
 }
 
-const reserveCopy = byId("reserve-copy");
-if (reserveCopy) {
-  reserveCopy.textContent =
-    `${proposal.client.firstName}, when you're ready, choose the collection that feels closest to the day you're planning. We can fine-tune the timeline together before anything is finalized.`;
-}
+const photoList = byId("photo-list");
+photoList.innerHTML = proposal.photoCollections.map((item) => collectionCard(item, "photo")).join("");
+
+const videoList = byId("video-list");
+videoList.innerHTML = proposal.videoAddons.map((item) => collectionCard(item, "video")).join("");
+
+document.querySelectorAll('[data-select="photo"]').forEach((button) => {
+  button.addEventListener("click", () => {
+    selectPhoto(button.closest("[data-photo]").dataset.photo, true);
+  });
+});
+
+document.querySelectorAll('[data-select="video"]').forEach((button) => {
+  button.addEventListener("click", () => {
+    selectVideo(button.closest("[data-video]").dataset.video, true);
+  });
+});
 
 const priorityList = byId("priority-list");
 proposal.priorities.forEach((priority, index) => {
   const article = document.createElement("article");
-  article.className = "priority-card reveal";
+  article.className = "priority-card";
   article.innerHTML = `
     <span>${String(index + 1).padStart(2, "0")}</span>
     <h3>${priority.title}</h3>
@@ -57,78 +199,7 @@ proposal.priorities.forEach((priority, index) => {
   priorityList.appendChild(article);
 });
 
-const collectionList = byId("collection-list");
-const reserveLink = byId("reserve-link");
-
-function selectCollection(id, shouldScroll = false) {
-  const selected = proposal.collections.find((collection) => collection.id === id);
-  if (!selected) return;
-
-  document.querySelectorAll(".collection").forEach((card) => {
-    const active = card.dataset.collection === id;
-    card.classList.toggle("is-selected", active);
-    card.querySelector(".select-collection")?.setAttribute("aria-pressed", String(active));
-  });
-
-  reserveLink.href = mailtoFor(selected.name);
-  reserveLink.textContent = `Choose ${selected.name}`;
-
-  if (shouldScroll) {
-    byId("reserve")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-}
-
-proposal.collections.forEach((collection) => {
-  const article = document.createElement("article");
-  article.className = `collection reveal${collection.featured ? " featured" : ""}`;
-  article.dataset.collection = collection.id;
-
-  const idealFor = collection.idealFor.map((item) => `<li>${item}</li>`).join("");
-  const includes = collection.includes.map((item) => `<li>${item}</li>`).join("");
-
-  article.innerHTML = `
-    <div class="collection-top">
-      <div>
-        <p class="collection-index">${collection.numeral}</p>
-        <h3>${collection.name}</h3>
-        <p class="collection-tone">${collection.tone}</p>
-      </div>
-      <div class="collection-price">
-        <span>${collection.hours}</span>
-        <strong>${collection.price}</strong>
-      </div>
-    </div>
-
-    <p class="collection-description">${collection.description}</p>
-
-    <div class="collection-details">
-      <div>
-        <h4>Perfect For</h4>
-        <ul>${idealFor}</ul>
-      </div>
-      <div>
-        <h4>Your Experience Includes</h4>
-        <ul>${includes}</ul>
-      </div>
-    </div>
-
-    <button class="select-collection" type="button" aria-pressed="false">
-      Select ${collection.name}
-    </button>
-  `;
-
-  article.querySelector(".select-collection").addEventListener("click", () => {
-    selectCollection(collection.id, true);
-  });
-
-  collectionList.appendChild(article);
-});
-
-const recommended =
-  proposal.collections.find((collection) => collection.name === proposal.recommendation.collection) ||
-  proposal.collections[0];
-
-selectCollection(recommended.id);
+updateSelection();
 
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
