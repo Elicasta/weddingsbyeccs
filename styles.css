@@ -1051,3 +1051,27 @@ footer {
     transition: none;
   }
 }
+
+.missing-proposal {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background: var(--paper);
+}
+
+.missing-proposal > div {
+  width: min(620px, 100%);
+}
+
+.missing-proposal h1 {
+  margin: 0 0 1rem;
+  font: 600 clamp(3rem, 7vw, 5.5rem)/.95 var(--serif);
+  letter-spacing: -.04em;
+}
+
+.missing-proposal p:not(.eyebrow) {
+  max-width: 520px;
+  margin: 0 0 1.5rem;
+  color: var(--muted);
+}
