@@ -1106,3 +1106,504 @@ footer {
   color: var(--muted);
   font-size: .66rem !important;
 }
+
+
+/* 2026-09-21 spacing + responsive refinement */
+.hero {
+  gap: clamp(3rem, 5.5vw, 5rem);
+  padding-block: clamp(3.75rem, 5.75vw, 5.5rem);
+}
+
+.hero-intro {
+  margin-top: 1.45rem;
+  margin-bottom: 1.1rem;
+}
+
+.hero-meta {
+  margin-bottom: 1.45rem;
+}
+
+.statement-inner {
+  padding-block: clamp(3.6rem, 5.5vw, 5.25rem);
+}
+
+.editorial-image img {
+  height: min(48vw, 640px);
+}
+
+.image-caption {
+  min-height: 54px;
+}
+
+.section,
+.film-section,
+.experience {
+  padding-block: clamp(3.75rem, 5.75vw, 5.5rem);
+}
+
+.chapter-heading {
+  margin-bottom: clamp(2rem, 3.25vw, 3rem);
+}
+
+.chapter-heading > p:last-child {
+  margin-top: 1rem;
+  line-height: 1.65;
+}
+
+.section-heading {
+  gap: clamp(2rem, 4.5vw, 4.25rem);
+  margin-bottom: clamp(2rem, 3.2vw, 3rem);
+}
+
+.section-heading > p {
+  max-width: 440px;
+  line-height: 1.65;
+}
+
+.collection {
+  padding: clamp(1.65rem, 2.6vw, 2.5rem);
+}
+
+.collection-top > *,
+.collection-details > *,
+.section-heading > *,
+.recommendation-grid > *,
+.reserve-grid > * {
+  min-width: 0;
+}
+
+.collection-description {
+  margin: 1.35rem 0 1.55rem;
+  line-height: 1.5;
+}
+
+.collection-details {
+  gap: clamp(2rem, 4.5vw, 4rem);
+  padding-top: 1.35rem;
+}
+
+.collection-details li {
+  line-height: 1.5;
+}
+
+.recommendation-grid {
+  gap: clamp(3rem, 5.5vw, 5.5rem);
+  padding-block: clamp(3.9rem, 5.75vw, 5.5rem);
+}
+
+.recommendation-copy p {
+  line-height: 1.65;
+}
+
+.priorities-section {
+  padding-block: clamp(3.4rem, 4.8vw, 4.6rem);
+}
+
+.priorities-section .section-heading {
+  margin-bottom: clamp(1.6rem, 2.4vw, 2.25rem);
+}
+
+.priority-card {
+  min-height: 238px;
+  padding: 1.45rem;
+}
+
+.priority-card h3 {
+  margin: clamp(2.4rem, 4vw, 3.8rem) 0 .75rem;
+}
+
+.priority-card p {
+  max-width: 29ch;
+  line-height: 1.5;
+}
+
+.experience-heading {
+  margin-bottom: 2.25rem;
+}
+
+.step {
+  min-height: 92px;
+  padding-block: .45rem;
+}
+
+.step p {
+  line-height: 1.55;
+}
+
+.faq .section-heading {
+  margin-bottom: 1.85rem;
+}
+
+.reserve-grid {
+  gap: clamp(3rem, 5.75vw, 5.5rem);
+  padding-block: clamp(4rem, 6vw, 5.75rem);
+}
+
+.reserve-copy > p:not(.eyebrow):not(.contact-note) {
+  line-height: 1.65;
+}
+
+.quote-handoff {
+  margin: 1.25rem 0;
+}
+
+.quote-handoff > div {
+  min-height: 58px;
+}
+
+footer .footer-inner {
+  min-height: 86px;
+}
+
+@media (max-width: 980px) {
+  .hero {
+    gap: 2.5rem;
+  }
+
+  .section-heading {
+    gap: 2.5rem;
+  }
+
+  .priority-card {
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 760px) {
+  html {
+    scroll-padding-top: 72px;
+  }
+
+  .site-header {
+    position: sticky;
+  }
+
+  .nav {
+    min-height: 66px;
+    gap: 1rem;
+  }
+
+  .nav-cta {
+    white-space: nowrap;
+  }
+
+  .shell {
+    width: min(100% - 32px, 1180px);
+  }
+
+  .hero {
+    padding-block: 2.8rem 3.25rem;
+    gap: 2rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.1rem, 12.5vw, 4.2rem);
+    line-height: .9;
+  }
+
+  .hero-intro {
+    margin: 1.2rem 0 .95rem;
+    font-size: 1.08rem;
+  }
+
+  .hero-meta {
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-photo figcaption {
+    margin-top: .65rem;
+  }
+
+  .statement-inner {
+    padding-block: 3rem;
+  }
+
+  .statement blockquote {
+    font-size: clamp(2.15rem, 7.6vw, 2.95rem);
+    line-height: 1.02;
+  }
+
+  .editorial-image img {
+    min-height: 300px;
+    height: 70vw;
+  }
+
+  .section,
+  .film-section,
+  .experience {
+    padding-block: 3.25rem;
+  }
+
+  .chapter-heading {
+    margin-bottom: 2rem;
+  }
+
+  .chapter-heading h2,
+  .section-heading h2,
+  .recommendation h2,
+  .reserve h2 {
+    font-size: clamp(2.35rem, 8.5vw, 3.25rem);
+    line-height: .98;
+  }
+
+  .section-heading {
+    gap: 1rem;
+    margin-bottom: 1.85rem;
+  }
+
+  .section-heading > p {
+    max-width: 34rem;
+  }
+
+  .collection {
+    padding: 1.35rem;
+  }
+
+  .collection.featured::before {
+    right: 1rem;
+  }
+
+  .collection-top {
+    gap: .95rem;
+  }
+
+  .collection h3 {
+    font-size: clamp(2.55rem, 10vw, 3.15rem);
+    line-height: .94;
+  }
+
+  .collection-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .collection-description {
+    margin: 1.15rem 0 1.3rem;
+    font-size: 1.08rem;
+  }
+
+  .collection-details {
+    gap: 1.5rem;
+    padding-top: 1.15rem;
+  }
+
+  .collection-details li {
+    margin-bottom: .45rem;
+  }
+
+  .recommendation-grid {
+    padding-block: 3.25rem;
+    gap: 1.75rem;
+  }
+
+  .recommendation-copy {
+    max-width: none;
+  }
+
+  .priorities-section {
+    padding-block: 3rem;
+  }
+
+  .priorities-section .section-heading {
+    margin-bottom: 1.5rem;
+  }
+
+  .priority-card {
+    min-height: 0;
+    padding: 1.35rem;
+  }
+
+  .priority-card h3 {
+    margin: 2.25rem 0 .65rem;
+    font-size: clamp(1.9rem, 8vw, 2.35rem);
+  }
+
+  .priority-card p {
+    max-width: none;
+  }
+
+  .experience-heading {
+    margin-bottom: 1.8rem;
+  }
+
+  .step {
+    min-height: 0;
+    padding-block: .95rem;
+  }
+
+  .step h3 {
+    font-size: 1.65rem;
+  }
+
+  .step p {
+    padding-right: .25rem;
+  }
+
+  .faq .section-heading {
+    margin-bottom: 1.4rem;
+  }
+
+  .faq-list summary {
+    padding-block: 1.15rem;
+    font-size: 1.35rem;
+  }
+
+  .reserve-grid {
+    gap: 2.5rem;
+    padding-block: 3.4rem;
+  }
+
+  .reserve-copy h2 {
+    margin-bottom: 1.1rem;
+  }
+
+  .quote-handoff {
+    margin: 1rem 0 1.25rem;
+  }
+
+  .quote-handoff > div {
+    min-height: 54px;
+  }
+
+  .contact-note {
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 480px) {
+  .shell {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .nav {
+    min-height: 62px;
+  }
+
+  .brand span {
+    font-size: 1.35rem;
+  }
+
+  .brand small {
+    font-size: .48rem;
+    letter-spacing: .2em;
+  }
+
+  .nav-links {
+    gap: .7rem;
+  }
+
+  .nav-links a {
+    font-size: .56rem;
+  }
+
+  .hero {
+    padding-block: 2.4rem 2.8rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 15vw, 3.9rem);
+  }
+
+  .hero-actions {
+    gap: .85rem;
+  }
+
+  .hero-actions .text-link {
+    align-self: flex-start;
+  }
+
+  .statement-inner {
+    padding-block: 2.7rem;
+  }
+
+  .statement blockquote {
+    font-size: clamp(2rem, 9.5vw, 2.65rem);
+  }
+
+  .editorial-image img {
+    min-height: 260px;
+    height: 78vw;
+  }
+
+  .image-caption {
+    min-height: 0;
+    padding-block: .75rem;
+  }
+
+  .section,
+  .film-section,
+  .experience,
+  .recommendation-grid,
+  .reserve-grid {
+    padding-block: 2.8rem;
+  }
+
+  .chapter-heading h2,
+  .section-heading h2,
+  .recommendation h2,
+  .reserve h2 {
+    font-size: clamp(2.25rem, 11vw, 2.95rem);
+  }
+
+  .collection {
+    padding: 1.2rem;
+  }
+
+  .collection h3 {
+    font-size: clamp(2.35rem, 12vw, 2.85rem);
+  }
+
+  .collection-price strong {
+    font-size: 2rem;
+  }
+
+  .collection-description {
+    font-size: 1.02rem;
+  }
+
+  .collection-details h4 {
+    margin-bottom: .65rem;
+  }
+
+  .collection-details li {
+    font-size: .79rem;
+    line-height: 1.48;
+  }
+
+  .priority-card {
+    padding: 1.2rem;
+  }
+
+  .priority-card h3 {
+    margin-top: 1.9rem;
+  }
+
+  .step {
+    grid-template-columns: 34px 1fr;
+    gap: .55rem .8rem;
+  }
+
+  .step p {
+    font-size: .8rem;
+  }
+
+  .faq-list summary {
+    padding-right: 2rem;
+    font-size: 1.25rem;
+  }
+
+  .reserve-photo {
+    width: 100%;
+  }
+
+  .quote-handoff > div {
+    grid-template-columns: 38px 1fr;
+  }
+
+  .quote-handoff strong {
+    font-size: 1.08rem;
+  }
+
+  .footer-inner {
+    min-height: 0;
+  }
+}
