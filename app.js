@@ -5,11 +5,6 @@ if (!template) {
 }
 
 const byId = (id) => document.getElementById(id);
-const money = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  minimumFractionDigits: 2
-});
 
 function getClientSlug() {
   const parts = window.location.pathname.split("/").filter(Boolean);
@@ -66,12 +61,13 @@ function renderList(items) {
   return items.map((item) => `<li>${item}</li>`).join("");
 }
 
-function collectionCard(item, type) {
+function collectionCard(item, type, recommendedName) {
   const isVideo = type === "video";
+  const isRecommended = item.name === recommendedName;
   const includes = item.includes?.length
     ? `
       <div class="collection-includes">
-        <h4>${isVideo ? "Film Add-On Includes" : "Your Experience Includes"}</h4>
+        <h4>${isVideo ? "Film Includes" : "Your Experience Includes"}</h4>
         <ul>${renderList(item.includes)}</ul>
       </div>
     `
@@ -87,7 +83,7 @@ function collectionCard(item, type) {
     : "";
 
   return `
-    <article class="collection ${isVideo ? "video-card" : ""} ${item.featured ? "featured" : ""}" data-${type}="${item.id}">
+    <article class="collection ${isVideo ? "video-card" : ""} ${isRecommended ? "featured" : ""}">
       <div class="collection-top">
         <div>
           <p class="collection-index">${item.numeral}</p>
@@ -107,38 +103,8 @@ function collectionCard(item, type) {
         ${ideal}
         ${includes}
       </div>
-
-      <button class="select-collection" type="button" aria-pressed="false" data-select="${type}">
-        ${isVideo ? (item.id === "none" ? "Photography Only" : `Add ${item.name}`) : `Select ${item.name}`}
-      </button>
     </article>
   `;
-}
-
-function mailtoFor(proposal, photo, video) {
-  const hasVideo = video && video.id !== "none";
-  const subject = encodeURIComponent(
-    `${proposal.client.fullName} · Wedding Collection Selection`
-  );
-
-  const lines = [
-    "Hi Emma,",
-    "",
-    "I'd like to move forward with the following wedding collection:",
-    "",
-    `Photography: ${photo.name} · ${photo.hours} · ${photo.priceDisplay}`,
-    hasVideo
-      ? `Film Add-On: ${video.name} · ${video.hours} · ${video.priceDisplay}`
-      : "Film Add-On: Photography only",
-    `Total: ${money.format(photo.price + (video?.price || 0))}`,
-    "",
-    `Wedding Date: ${proposal.client.date}`,
-    "",
-    "Thank you,",
-    proposal.client.firstName
-  ];
-
-  return `mailto:hello@eccreativestudios.com?subject=${subject}&body=${encodeURIComponent(lines.join("\n"))}`;
 }
 
 function initializeProposal(clientData) {
@@ -149,60 +115,8 @@ function initializeProposal(clientData) {
     videoAddons: template.videoAddons
   };
 
-  let selectedPhotoId =
-    proposal.photoCollections.find((item) => item.name === proposal.recommendation.photoCollection)?.id ||
-    proposal.photoCollections[0].id;
-
-  let selectedVideoId =
-    proposal.videoAddons.find((item) => item.name === proposal.recommendation.videoAddon)?.id ||
-    "none";
-
-  function updateSelection() {
-    const photo = proposal.photoCollections.find((item) => item.id === selectedPhotoId);
-    const video = proposal.videoAddons.find((item) => item.id === selectedVideoId);
-
-    if (!photo || !video) return;
-
-    document.querySelectorAll("[data-photo]").forEach((card) => {
-      const active = card.dataset.photo === selectedPhotoId;
-      card.classList.toggle("is-selected", active);
-      card.querySelector(".select-collection")?.setAttribute("aria-pressed", String(active));
-    });
-
-    document.querySelectorAll("[data-video]").forEach((card) => {
-      const active = card.dataset.video === selectedVideoId;
-      card.classList.toggle("is-selected", active);
-      card.querySelector(".select-collection")?.setAttribute("aria-pressed", String(active));
-    });
-
-    const hasVideo = video.id !== "none";
-    const title = hasVideo ? `${photo.name} + ${video.name}` : photo.name;
-
-    setText("selection-title", title);
-    setText("selected-photo", `${photo.name} · ${photo.hours}`);
-    setText("selected-photo-price", photo.priceDisplay);
-    setText("selected-video", hasVideo ? `${video.name} · ${video.hours}` : "Photography Only");
-    setText("selected-video-price", hasVideo ? video.priceDisplay : "$0.00");
-    setText("selected-total", money.format(photo.price + video.price));
-
-    const reserveLink = byId("reserve-link");
-    reserveLink.href = mailtoFor(proposal, photo, video);
-  }
-
-  function selectPhoto(id, scroll = false) {
-    selectedPhotoId = id;
-    updateSelection();
-    if (scroll) {
-      byId("film")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  }
-
-  function selectVideo(id, scroll = false) {
-    selectedVideoId = id;
-    updateSelection();
-    if (scroll) {
-      byId("reserve")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+  if (!proposal.quoteUrl) {
+    throw new Error(`Client proposal "${proposal.slug}" is missing quoteUrl.`);
   }
 
   document.title = `${proposal.client.firstName}'s Wedding Story | Emma Cast Creative`;
@@ -220,7 +134,7 @@ function initializeProposal(clientData) {
   setText("recommendation-copy", proposal.recommendation.copy);
   setText(
     "reserve-copy",
-    `${proposal.client.firstName}, this is your current selection. We can fine-tune the timing together before anything is finalized.`
+    `${proposal.client.firstName}, your final selections happen inside your official quote so your package, add-ons, and total always stay together in one place.`
   );
 
   const vision = byId("vision-copy");
@@ -229,22 +143,15 @@ function initializeProposal(clientData) {
   }
 
   const photoList = byId("photo-list");
-  photoList.innerHTML = proposal.photoCollections.map((item) => collectionCard(item, "photo")).join("");
+  photoList.innerHTML = proposal.photoCollections
+    .map((item) => collectionCard(item, "photo", proposal.recommendation.photoCollection))
+    .join("");
 
   const videoList = byId("video-list");
-  videoList.innerHTML = proposal.videoAddons.map((item) => collectionCard(item, "video")).join("");
-
-  document.querySelectorAll('[data-select="photo"]').forEach((button) => {
-    button.addEventListener("click", () => {
-      selectPhoto(button.closest("[data-photo]").dataset.photo, true);
-    });
-  });
-
-  document.querySelectorAll('[data-select="video"]').forEach((button) => {
-    button.addEventListener("click", () => {
-      selectVideo(button.closest("[data-video]").dataset.video, true);
-    });
-  });
+  videoList.innerHTML = proposal.videoAddons
+    .filter((item) => item.id !== "none")
+    .map((item) => collectionCard(item, "video", proposal.recommendation.videoAddon))
+    .join("");
 
   const priorityList = byId("priority-list");
   priorityList.innerHTML = "";
@@ -259,7 +166,11 @@ function initializeProposal(clientData) {
     priorityList.appendChild(article);
   });
 
-  updateSelection();
+  document.querySelectorAll(".quote-link").forEach((link) => {
+    link.href = proposal.quoteUrl;
+    link.target = "_blank";
+    link.rel = "noopener";
+  });
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
