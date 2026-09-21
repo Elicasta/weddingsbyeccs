@@ -1,5 +1,7 @@
 window.CLIENT_PROPOSAL = {
   slug: "cristina",
+  quoteUrl: "https://ECCreativeStudio.pixieset.com/quote/qo_3LvMoH3SY0p8q7HWggKWE9BCPi9f",
+
   client: {
     firstName: "Cristina",
     fullName: "Cristina Lopez",
