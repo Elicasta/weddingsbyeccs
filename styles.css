@@ -1075,3 +1075,34 @@ footer {
   margin: 0 0 1.5rem;
   color: var(--muted);
 }
+
+
+.quote-handoff {
+  margin: 1.5rem 0;
+  border-top: 1px solid var(--espresso);
+}
+
+.quote-handoff > div {
+  min-height: 64px;
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+}
+
+.quote-handoff span {
+  color: var(--caramel);
+  font-size: .61rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+}
+
+.quote-handoff strong {
+  font: 600 1.2rem/1.15 var(--serif);
+}
+
+.quote-source-note {
+  margin: .8rem 0 0 !important;
+  color: var(--muted);
+  font-size: .66rem !important;
+}
