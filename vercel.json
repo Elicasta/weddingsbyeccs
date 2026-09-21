@@ -12,10 +12,10 @@
       ]
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(?<slug>[^/.]+)",
-      "dest": "/index.html"
+      "source": "/:slug((?!.*\\.).*)",
+      "destination": "/"
     }
   ]
 }
