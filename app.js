@@ -128,6 +128,11 @@ function requestQuoteHref(proposal) {
       `Name: ${proposal.client.fullName}`,
       `Wedding Date: ${proposal.client.date}`,
       "",
+      `Photography preference: ${proposal.recommendation.photoCollection || "Please advise"}`,
+      `Film option we discussed: ${proposal.recommendation.videoAddon || "Optional; please advise"}`,
+      "",
+      "Please help me review these options and prepare the official quote.",
+      "",
       "Thank you!"
     ].join("\n")
   );
@@ -242,7 +247,7 @@ function initializeProposal(clientData) {
 
   const handoffSteps = document.querySelectorAll(".quote-handoff > div strong");
   if (!hasQuote && handoffSteps.length >= 3) {
-    handoffSteps[0].textContent = "Review the elopement options";
+    handoffSteps[0].textContent = "Review your coverage options";
     handoffSteps[1].textContent = "Tell us what feels right";
     handoffSteps[2].textContent = "We’ll prepare your official quote";
   }
