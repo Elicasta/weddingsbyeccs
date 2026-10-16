@@ -30,6 +30,8 @@ window.CLIENT_PROPOSAL = {
     filmTitle: "Keep the energy in motion.",
     filmIntro:
       "Film is the add-on, not a requirement. For a celebration like yours, it's about the laughter, the music, the movement, and any toasts or personal moments you choose to share. Select four hours around the heart of the party or the full six hours alongside photography. All rates below are planning estimates.",
+    planningStep:
+      "We'll shape the six hours around arrivals, guest moments, portraits, any toasts you plan, and the dance floor, without forcing a ceremony timeline.",
     reserveEyebrow: "Let's Make It Yours",
     reserveTitle: "Ready to talk through your options?",
     reserveCopy:
