@@ -128,6 +128,11 @@ function requestQuoteHref(proposal) {
       `Name: ${proposal.client.fullName}`,
       `Wedding Date: ${proposal.client.date}`,
       "",
+      `Photography preference: ${proposal.recommendation.photoCollection || "Please advise"}`,
+      `Film option we discussed: ${proposal.recommendation.videoAddon || "Optional; please advise"}`,
+      "",
+      "Please help me review these options and prepare the official quote.",
+      "",
       "Thank you!"
     ].join("\n")
   );
@@ -173,6 +178,7 @@ function initializeProposal(clientData) {
   setNodeText("#film .chapter-heading > p:last-child", copy.filmIntro);
 
   setNodeText(".reserve-copy > .eyebrow", copy.reserveEyebrow);
+  setNodeText(".steps .step:nth-child(4) p", copy.planningStep);
   setNodeText(".reserve-copy > h2", copy.reserveTitle);
 
   const vision = byId("vision-copy");
@@ -242,7 +248,7 @@ function initializeProposal(clientData) {
 
   const handoffSteps = document.querySelectorAll(".quote-handoff > div strong");
   if (!hasQuote && handoffSteps.length >= 3) {
-    handoffSteps[0].textContent = "Review the elopement options";
+    handoffSteps[0].textContent = "Review your coverage options";
     handoffSteps[1].textContent = "Tell us what feels right";
     handoffSteps[2].textContent = "We’ll prepare your official quote";
   }
