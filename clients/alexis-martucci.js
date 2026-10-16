@@ -61,7 +61,7 @@ window.CLIENT_PROPOSAL = {
     videoAddon: "The Celebration Film",
     title: "Our starting point: six hours of photo, with film as your choice.",
     copy:
-      "We recommend six hours of photography as the foundation for your 75–150-guest celebration. If film feels right, six hours of cinematography would tell the fullest story alongside your images; four hours keeps video focused on the heart of the party. Estimated investment is $3,750 for photography, plus $2,000 for four-hour film or $2,500 for six-hour film. That is $5,750 or $6,250 together, respectively. We know that's above the budget you selected, so we would rather be clear now and discuss a simpler scope than promise something that doesn't match the coverage."
+      "We recommend six hours of photography as the foundation for your 75–150-guest celebration. If film feels right, six hours of cinematography would tell the fullest story alongside your images; four hours keeps video focused on the heart of the party. Estimated investment is $3,750 for photography, plus $2,000 for four-hour film or $2,500 for six-hour film. That is $5,750 or $6,250 together, respectively. Film stays entirely optional. Every price here is a planning estimate; we will confirm the exact coverage, deliverables, and investment in your official Pixieset quote before booking."
   },
 
   photoCollections: [
