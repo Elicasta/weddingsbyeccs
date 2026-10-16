@@ -178,6 +178,7 @@ function initializeProposal(clientData) {
   setNodeText("#film .chapter-heading > p:last-child", copy.filmIntro);
 
   setNodeText(".reserve-copy > .eyebrow", copy.reserveEyebrow);
+  setNodeText(".steps .step:nth-child(4) p", copy.planningStep);
   setNodeText(".reserve-copy > h2", copy.reserveTitle);
 
   const vision = byId("vision-copy");
