@@ -1,5 +1,6 @@
 window.CLIENT_PROPOSAL = {
   slug: "alexismartucci",
+  quoteUrl: "https://ECCreativeStudio.pixieset.com/quote/qo_czgk2I8bAZiPVgeOqXfjAApI1ZKl",
 
   client: {
     firstName: "Alexis",
@@ -29,11 +30,11 @@ window.CLIENT_PROPOSAL = {
     filmTitle: "Bring the celebration back to life.",
     filmIntro:
       "Film is optional. You can add two, four, or six hours of cinematography to preserve the music, laughter, loved ones, toasts, and energy of the party. Each option includes a cinematographer, a cinematic highlight film, and online delivery.",
-    reserveEyebrow: "Your Next Step",
+    reserveEyebrow: "Your Official Quote",
     reserveTitle: "Choose the coverage that fits.",
     reserveCopy:
-      "Alexis, you can choose two hours of photography for $1,750, four hours for $2,500, or six hours for $3,500. Add film only if it feels right for your celebration, starting at $800. The four-hour collection fits the budget you shared, while six hours matches the timeline you originally had in mind. We'll confirm the final selections in your Pixieset quote.",
-    quoteButtonLabel: "Discuss Your Coverage"
+      "Alexis, you can choose two hours of photography for $1,750, four hours for $2,500, or six hours for $3,500. Add film only if it feels right for your celebration, starting at $800. The four-hour collection fits the budget you shared, while six hours matches the timeline you originally had in mind. Make your final selections and review the full investment directly in your Pixieset quote.",
+    quoteButtonLabel: "Open Your Quote + Choose"
   },
 
   priorities: [
