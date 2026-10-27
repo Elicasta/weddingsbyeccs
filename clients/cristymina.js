@@ -15,34 +15,34 @@ window.CLIENT_PROPOSAL = {
     heroEyebrow: "A Private Wedding Photography Proposal",
     heroTitleTail: "your wedding story.",
     heroIntro:
-      "Your wedding day brings together a meaningful ceremony at Amor y Fe and a celebration at Rusty Pelican in Miami. We would love to preserve it through honest candids, beautiful portraits, and the people you hold closest.",
+      "A meaningful ceremony at Amor y Fe, followed by a celebration at Rusty Pelican. We'd love to document your day through thoughtful portraits, genuine family moments, and everything that makes it yours.",
     heroCaption: "The ceremony. Your people. The celebration.",
     vision:
-      "Family portraits. Editorial images that feel timeless. Natural moments as they happen. Your ceremony, and the joy that follows at the reception.",
-    visionTail: "Photographs of the moments, and the feeling behind them.",
-    photoEyebrow: "Chapter One: Your Wedding Photography",
-    photoTitle: "Make room for the moments that matter.",
+      "Family photographs. Timeless editorial portraits. Natural moments as they happen. The meaning of your church ceremony and the joy that follows at the reception.",
+    visionTail: "Every photograph should feel like your story.",
+    photoEyebrow: "Your Wedding Photography Collections",
+    photoTitle: "Coverage for the moments that matter.",
     photoIntro:
-      "You mentioned wanting about six hours of photography. We can talk through a custom six-hour proposal around your church ceremony, travel, portraits, and reception. Below, you can also compare our published full-wedding collections. Custom coverage and pricing would be confirmed before booking.",
-    reserveEyebrow: "Your Photography Proposal",
-    reserveTitle: "Let's plan your six hours.",
+      "Your official quote offers four, eight, or ten hours of photography. You originally considered six hours; four hours keeps coverage focused, while eight gives more breathing room for the ceremony, portraits, travel, and reception. The final choice and investment will be confirmed in your Pixieset quote.",
+    reserveEyebrow: "Your Photography Quote",
+    reserveTitle: "Let's find your best fit.",
     reserveCopy:
-      "Cristy, the six-hour coverage you asked about is a custom request, not a confirmed package or price yet. Our published eight-hour Classic Collection starts at $4,500, which is above the budget range you shared. We'd be happy to discuss your ceremony and reception timeline and prepare a photography-only quote that makes the coverage and investment clear.",
+      "Cristy, the four-hour package is $2,500, within the budget range you shared. The eight-hour collection is $4,250, and ten hours is $5,250. Since your ceremony and reception are at separate locations, we'd be happy to walk through the timeline with you so you can choose the right amount of coverage before confirming your official quote.",
     quoteButtonLabel: "Discuss Your Photography Quote"
   },
 
   priorities: [
     {
       title: "Family photographs",
-      copy: "The portraits you'll frame for years, along with the hugs, smiles, and small moments between the people you love."
+      copy: "The portraits you'll frame for years, alongside the hugs, smiles, and natural interactions with the people you love."
     },
     {
       title: "Editorial portraits",
-      copy: "Thoughtfully composed images with beautiful light and natural direction, without making your wedding feel like a photo shoot."
+      copy: "Thoughtfully composed photographs in beautiful light, with enough direction to feel confident while still looking and feeling like you."
     },
     {
       title: "Your ceremony",
-      copy: "The entrance, reactions, vows, and meaningful moments at Amor y Fe that mark the beginning of this chapter."
+      copy: "The entrance, vows, reactions, and meaningful moments at Amor y Fe that mark the beginning of this chapter."
     },
     {
       title: "Candid celebration",
@@ -51,52 +51,89 @@ window.CLIENT_PROPOSAL = {
   ],
 
   recommendation: {
-    photoCollection: "Your 6-Hour Photography Request",
+    photoCollection: "Elopement Package // Intimate Moments, Big Memories!",
     videoAddon: null,
-    title: "Our starting point: your six-hour timeline.",
+    title: "Our starting point: four hours of photography.",
     copy:
-      "Because you are planning both a church ceremony and a reception at Rusty Pelican, we would start by mapping the timeline: ceremony, family and editorial portraits, travel, and the reception highlights you want captured. Six hours is your preferred window, and we can discuss a custom quote for that scope. Our published eight-hour photography collection is also available for comparison if you decide you'd like more time."
+      "The four-hour collection at $2,500 is the closest match to the budget you shared. With both Amor y Fe and Rusty Pelican in your plans, we'll want to account for the ceremony, family portraits, editorial photographs, travel, and reception highlights. Eight hours at $4,250 offers more breathing room if you decide you'd like fuller coverage. Let's choose based on the moments you most want preserved."
   },
 
   photoCollections: [
     {
-      id: "six-hour-request",
+      id: "elopement-4",
       numeral: "I.",
-      name: "Your 6-Hour Photography Request",
-      hours: "6 Hours Requested",
-      priceDisplay: "Custom Quote",
-      tone: "Tailored to Your Timeline",
+      name: "Elopement Package // Intimate Moments, Big Memories!",
+      hours: "4 Hours",
+      price: 2500,
+      priceDisplay: "$2,500.00",
+      tone: "Focused + Intimate",
       description:
-        "A starting point for discussing six hours of photography across your ceremony and reception. The final scope, number of photographers, deliverables, and investment will be confirmed in your individual Pixieset quote.",
+        "A focused collection for preserving your church ceremony, meaningful portraits, and the moments most important to you. We'll map the coverage window carefully around your two locations.",
       idealFor: [
-        "Your preferred six-hour timeline",
-        "Ceremony, family and editorial portraits",
-        "Selected reception highlights and candids"
+        "A carefully planned four-hour photography window",
+        "Ceremony and priority family photographs",
+        "Couples who want to focus on the essential moments"
       ],
       includes: [
-        "Requested: six hours of photography",
-        "Coverage priorities: Amor y Fe ceremony and Rusty Pelican reception",
-        "Final coverage details and price to be confirmed"
+        "4 hours of photography coverage",
+        "1 photographer",
+        "400 digital images",
+        "Professional online gallery",
+        "Pre-elopement consultation",
+        "Coverage of the ceremony, vows, and intimate moments",
+        "Discounted engagement session"
       ]
     },
-    ...window.WEDDING_TEMPLATE.photoCollections
-  ],
-  videoAddons: [],
-
-  collectionPresentation: {
-    photo: {
-      classic: {
-        description:
-          "Eight hours gives us room to preserve your church ceremony, family portraits, editorial images, travel between locations, and many of the important moments at your reception."
-      },
-      "full-day": {
-        description:
-          "Ten hours offers additional breathing room between Amor y Fe and Rusty Pelican, along with more time for the people, speeches, dancing, and memorable reception moments."
-      },
-      legacy: {
-        description:
-          "Twelve hours is designed for an extended wedding timeline, with a fuller record of preparations, the ceremony, portraits, and the celebration through the evening."
-      }
+    {
+      id: "essentials-8",
+      numeral: "II.",
+      name: "Essentials Package // Capturing Your Love Story",
+      hours: "8 Hours",
+      price: 4250,
+      priceDisplay: "$4,250.00",
+      tone: "Balanced + Story-Driven",
+      description:
+        "More time to move naturally from your Amor y Fe ceremony to family and editorial portraits, and into the celebration at Rusty Pelican.",
+      idealFor: [
+        "A wedding across ceremony and reception venues",
+        "More time for family and editorial portraits",
+        "Additional reception moments, speeches, and dancing"
+      ],
+      includes: [
+        "8 hours of photography coverage",
+        "1 photographer",
+        "600–800 digital images",
+        "Professional online gallery",
+        "Engagement session included",
+        "Pre-wedding consultation",
+        "Coverage of key moments"
+      ]
+    },
+    {
+      id: "full-day-10",
+      numeral: "III.",
+      name: "Full Day Package // Dawn Till Dusk",
+      hours: "10 Hours",
+      price: 5250,
+      priceDisplay: "$5,250.00",
+      tone: "Complete + Unhurried",
+      description:
+        "A fuller photographic story with more room for getting-ready moments, your church ceremony, portraits, and the reception as it unfolds.",
+      idealFor: [
+        "Extended timelines across both locations",
+        "More candid coverage of guests and family",
+        "A fuller record from the earlier moments through the reception"
+      ],
+      includes: [
+        "10 hours of photography coverage",
+        "2 photographers",
+        "800–1,000 digital images",
+        "Professional online gallery",
+        "Pre-wedding consultation",
+        "Engagement session included"
+      ]
     }
-  }
+  ],
+
+  videoAddons: []
 };
