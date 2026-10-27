@@ -24,22 +24,22 @@ window.CLIENT_PROPOSAL = {
     photoEyebrow: "Chapter One: Celebration Photography",
     photoTitle: "Coverage for the party you are planning.",
     photoIntro:
-      "Your quote includes a four-hour intimate coverage option, eight-hour Essentials coverage, and ten-hour Full Day coverage. You mentioned considering six hours, so we can talk through which option best fits the party.",
+      "Choose two, four, or six hours of photography based on how much of the celebration you want to preserve. Since you originally considered six hours, you can now compare that full window with two shorter options. Your final selections are confirmed in your Pixieset quote.",
     filmEyebrow: "Chapter Two: Optional Cinematic Film",
     filmTitle: "Bring the celebration back to life.",
     filmIntro:
-      "You mentioned wanting a cinematic film if it fits your budget. Video is not priced in the current photography quote, but we can discuss a custom film option that focuses on the music, laughter, guests, and emotion of your celebration.",
+      "Film is optional. You can add two, four, or six hours of cinematography to preserve the music, laughter, loved ones, toasts, and energy of the party. Each option includes a cinematographer, a cinematic highlight film, and online delivery.",
     reserveEyebrow: "Your Next Step",
-    reserveTitle: "Let's plan the coverage that fits.",
+    reserveTitle: "Choose the coverage that fits.",
     reserveCopy:
-      "Alexis, your photography quote includes a four-hour collection at $2,500, eight hours at $4,250, and ten hours at $5,250. Since you originally mentioned six hours and a $1,500–$3,000 budget, we can talk through your priorities and find the best fit. Film is available to discuss separately.",
+      "Alexis, you can choose two hours of photography for $1,750, four hours for $2,500, or six hours for $3,500. Add film only if it feels right for your celebration, starting at $800. The four-hour collection fits the budget you shared, while six hours matches the timeline you originally had in mind. We'll confirm the final selections in your Pixieset quote.",
     quoteButtonLabel: "Discuss Your Coverage"
   },
 
   priorities: [
     {
       title: "Candid moments",
-      copy: "The real laughter, happy chaos, dance-floor energy, and spontaneous interactions that make a party unforgettable."
+      copy: "The real laughter, dance-floor energy, and spontaneous interactions that make a party unforgettable."
     },
     {
       title: "The people you love",
@@ -47,52 +47,148 @@ window.CLIENT_PROPOSAL = {
     },
     {
       title: "A celebration on film",
-      copy: "If it fits your plans and budget, a cinematic film can preserve the sounds, movement, music, and emotion of the evening."
+      copy: "If you choose to add film, preserve the sound, music, movement, and emotion of the evening."
     },
     {
       title: "Images that last",
-      copy: "A timeless photographic story worth coming back to, with your favorite images ready to become a keepsake album."
+      copy: "A timeless photographic story to revisit, with your favorite images ready for a keepsake album."
     }
   ],
 
   recommendation: {
     photoCollection: "Elopement Package // Intimate Moments, Big Memories!",
     videoAddon: null,
-    title: "Our starting point: intimate celebration coverage.",
+    title: "Our starting point: four hours of photography.",
     copy:
-      "For a celebration at Alvarez Farms without a ceremony, the four-hour package at $2,500 is the closest option to your stated budget. Essentials at $4,250 gives more time for guests, dancing, and candid coverage. We can decide together whether four hours is enough or whether the extra coverage is worthwhile. Video is optional and would be quoted separately."
+      "For your marriage celebration at Alvarez Farms, four hours of photography at $2,500 is a strong starting point within the budget range you shared. If you want the party, guests, and dancing documented over a longer stretch, the six-hour option at $3,500 matches your initial coverage preference. Add two, four, or six hours of film only if you'd like the movement and emotion preserved as well."
   },
 
   photoCollections: [
     {
-      id: "intimate", numeral: "I.", name: "Elopement Package // Intimate Moments, Big Memories!",
-      hours: "4 Hours", price: 2500, priceDisplay: "$2,500.00", tone: "Focused + Intimate",
-      description: "Four hours for the heart of your celebration: the people, the party, and your favorite candid moments. We can tailor the schedule to the festivities rather than a traditional ceremony.",
-      idealFor: ["A shorter celebration", "Group portraits and candid moments", "A focused timeline and budget"],
-      includes: ["4 hours of photography", "1 photographer", "400 digital images", "Professional online gallery", "Pre-event consultation", "Key moments and candid coverage adapted to your celebration", "Discounted engagement session"]
+      id: "intimate-2",
+      numeral: "I.",
+      name: "Intimate Package // 2-Hour Coverage",
+      hours: "2 Hours",
+      price: 1750,
+      priceDisplay: "$1,750.00",
+      tone: "Short + Focused",
+      description:
+        "A focused two-hour window for the heart of your marriage celebration, with candid photographs of the people and moments that matter most.",
+      idealFor: [
+        "A brief, intentional window of coverage",
+        "Family and group photographs",
+        "Candid moments during the celebration"
+      ],
+      includes: [
+        "2 hours of photography",
+        "1 photographer",
+        "Professional online gallery",
+        "Pre-wedding consultation",
+        "Coverage focused on the key moments of your celebration"
+      ]
     },
     {
-      id: "essentials", numeral: "II.", name: "Essentials Package // Capturing Your Love Story",
-      hours: "8 Hours", price: 4250, priceDisplay: "$4,250.00", tone: "Extended + Story-Driven",
-      description: "Eight hours gives us room for guest arrivals, portraits, toasts, dancing, and the moments that make your marriage party yours.",
-      idealFor: ["An unhurried party", "Guests, candids, and dancing", "More of the celebration from beginning to end"],
-      includes: ["8 hours of photography", "1 photographer", "600–800 digital images", "Online gallery", "Engagement session included", "Pre-wedding consultation", "Coverage of key celebration moments"]
+      id: "elopement-4",
+      numeral: "II.",
+      name: "Elopement Package // Intimate Moments, Big Memories!",
+      hours: "4 Hours",
+      price: 2500,
+      priceDisplay: "$2,500.00",
+      tone: "Intimate + Balanced",
+      description:
+        "Four hours to follow the celebration naturally, from portraits and guest arrivals to meaningful candid interactions and the party itself.",
+      idealFor: [
+        "Coverage of the core celebration",
+        "Family, friends, and candid moments",
+        "A balance of time and investment"
+      ],
+      includes: [
+        "4 hours of photography",
+        "1 photographer",
+        "400 digital images",
+        "Professional online gallery",
+        "Pre-elopement consultation",
+        "Coverage of the key moments of your celebration",
+        "Discounted engagement session"
+      ]
     },
     {
-      id: "full-day", numeral: "III.", name: "Full Day Package // Dawn Till Dusk",
-      hours: "10 Hours", price: 5250, priceDisplay: "$5,250.00", tone: "Complete + Unhurried",
-      description: "Ten hours for a fuller record of your celebration, from the earlier details and group portraits through the late-night party.",
-      idealFor: ["A longer celebration", "More time with family and friends", "Comprehensive candid and party coverage"],
-      includes: ["10 hours of photography", "2 photographers", "800–1,000 digital images", "Professional online gallery", "Pre-wedding consultation", "Engagement session included"]
+      id: "essentials-6",
+      numeral: "III.",
+      name: "Essentials Package // Capturing Your Love Story",
+      hours: "6 Hours",
+      price: 3500,
+      priceDisplay: "$3,500.00",
+      tone: "Extended + Story-Driven",
+      description:
+        "Six hours gives us room for more of the evening, including candid guest moments, portraits, dinner, and dancing without rushing through the celebration.",
+      idealFor: [
+        "Your originally requested six-hour timeline",
+        "Longer coverage of guests and dancing",
+        "More of the party from beginning to end"
+      ],
+      includes: [
+        "6 hours of photography",
+        "1 photographer",
+        "Professional online gallery",
+        "Engagement session included",
+        "Pre-wedding consultation",
+        "Coverage of key celebration moments"
+      ]
     }
   ],
 
   videoAddons: [
     {
-      id: "custom-film", numeral: "I.", name: "Custom Celebration Film",
-      hours: "Coverage by arrangement", priceDisplay: "Quote on request", tone: "Optional + Personal",
-      description: "Interested in a cinematic record of the party? We can discuss coverage of guests, music, dancing, toasts, and emotional moments. Your current Pixieset quote does not include a film price, so we will confirm the film scope and investment separately.",
-      includes: ["Film coverage and deliverables tailored to your celebration", "Final hours, editing, and price confirmed before booking"]
+      id: "film-2",
+      numeral: "I.",
+      name: "Film Add-On | 2 Hours",
+      hours: "2 Hours",
+      price: 800,
+      priceDisplay: "+ $800.00",
+      tone: "A Little Motion",
+      description:
+        "A shorter cinematic keepsake focused on the moments, people, and energy you most want to remember.",
+      includes: [
+        "2 hours of wedding cinematography",
+        "1 cinematographer",
+        "Cinematic highlight film",
+        "Online film delivery"
+      ]
+    },
+    {
+      id: "film-4",
+      numeral: "II.",
+      name: "Film Add-On | 4 Hours",
+      hours: "4 Hours",
+      price: 1200,
+      priceDisplay: "+ $1,200.00",
+      tone: "The Heart of the Party",
+      description:
+        "More time to capture the atmosphere, interactions, and emotion of your marriage celebration in motion.",
+      includes: [
+        "4 hours of wedding cinematography",
+        "1 cinematographer",
+        "Cinematic highlight film",
+        "Online film delivery"
+      ]
+    },
+    {
+      id: "film-6",
+      numeral: "III.",
+      name: "Film Add-On | 6 Hours",
+      hours: "6 Hours",
+      price: 1600,
+      priceDisplay: "+ $1,600.00",
+      tone: "A Fuller Film Story",
+      description:
+        "Extended cinematic coverage of your people, music, toasts, and the energy of the party throughout the evening.",
+      includes: [
+        "6 hours of wedding cinematography",
+        "1 cinematographer",
+        "Cinematic highlight film",
+        "Online film delivery"
+      ]
     }
   ]
 };
