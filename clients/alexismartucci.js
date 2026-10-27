@@ -1,0 +1,65 @@
+window.CLIENT_PROPOSAL = {
+  slug: "alexismartucci",
+
+  client: {
+    firstName: "Alexis",
+    fullName: "Alexis Martucci",
+    date: "February 27, 2027",
+    venue: "Alvarez Farms",
+    location: "Miami Redland, Florida",
+    guestCount: "75–150 guests",
+    email: "Amartucci22@gmail.com",
+    instagram: "@alexismartucci"
+  },
+
+  pageCopy: {
+    heroEyebrow: "A Private Wedding Celebration Proposal",
+    heroTitleTail: "your celebration story.",
+    heroIntro:
+      "No aisle, no traditional ceremony. Just a celebration of your marriage with the family and friends who matter most, preserved in photographs that feel as genuine as the party itself.",
+    heroCaption: "Your people. The energy. The little moments in between.",
+    vision:
+      "You are doing this your way: a party at Alvarez Farms, surrounded by the people you love, with room for spontaneous moments, laughter, and celebration.",
+    visionTail: "Less tradition. More of what feels like you.",
+    photoEyebrow: "Chapter One: Celebration Photography",
+    photoTitle: "Coverage for the party you are planning.",
+    photoIntro:
+      "Our standard photography collections offer 8, 10, or 12 hours. You mentioned wanting around 6 hours, so the 8-hour Classic Collection is the closest published option. If six hours feels more appropriate, we can discuss a custom scope before finalizing your quote.",
+    filmEyebrow: "Chapter Two: Optional Cinematic Film",
+    filmTitle: "Bring the celebration back to life.",
+    filmIntro:
+      "Film is an optional addition, not a requirement. Rather than focusing on a ceremony, we would plan around your guests, music, laughter, toasts, and the energy of the party. Any ceremony-specific film deliverables in our standard collections would need to be adapted and confirmed in your official quote.",
+    reserveEyebrow: "Your Next Step",
+    reserveTitle: "Let's plan the coverage that fits.",
+    reserveCopy:
+      "Alexis, we know you are considering six hours and a budget of $1,500–$3,000. Our published 8-hour photography collection begins at $4,500, so it is above that range. If you would like, we can talk through a shorter custom photography scope, with film optional, before putting together your official quote.",
+    quoteButtonLabel: "Discuss Your Coverage"
+  },
+
+  priorities: [
+    {
+      title: "Candid moments",
+      copy: "The real laughter, happy chaos, dance-floor energy, and spontaneous interactions that make a party unforgettable."
+    },
+    {
+      title: "The people you love",
+      copy: "Photographs with family and friends, including the hugs, conversations, and unexpected moments between group portraits."
+    },
+    {
+      title: "A celebration on film",
+      copy: "If it fits your plans and budget, a cinematic film can preserve the sounds, movement, music, and emotion of the evening."
+    },
+    {
+      title: "Images that last",
+      copy: "A timeless photographic story worth coming back to, with your favorite images ready to become a keepsake album."
+    }
+  ],
+
+  recommendation: {
+    photoCollection: "Classic Collection",
+    videoAddon: null,
+    title: "The closest standard fit: Classic Collection.",
+    copy:
+      "With 75–150 guests and a celebration-focused evening, candid photography is the priority. Classic gives eight hours of coverage for $4,500, which is more time and investment than you originally requested. We can also discuss a custom six-hour scope rather than asking you to pay for coverage you do not need. Cinematic film remains optional."
+  }
+};
