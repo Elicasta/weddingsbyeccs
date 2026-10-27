@@ -209,6 +209,28 @@ function initializeProposal(clientData) {
     filmSection.hidden = true;
   }
 
+  if (proposal.photographyOnly) {
+    if (filmSection) filmSection.hidden = true;
+
+    document.querySelectorAll('.nav-links a[href="#film"]').forEach((link) => {
+      link.hidden = true;
+    });
+
+    setNodeText(".image-caption span:first-child", "Family · Editorial · Candid · Celebration");
+    setNodeText(".experience-heading > p", "When the wedding day arrives, you should feel confident that the photographs are taken care of.");
+    setNodeText(".steps .step:first-child p", "Explore the photography options and our recommendation for your ceremony and reception.");
+
+    const faq = document.querySelectorAll(".faq-list > details");
+    if (faq.length >= 4) {
+      faq[1].hidden = true;
+      faq[2].hidden = true;
+      faq[3].querySelector("summary").textContent = "How do we finalize our photography collection?";
+      faq[3].querySelector("p").textContent = hasQuote
+        ? "Review the coverage options here, then make your final choice in your official Pixieset quote."
+        : "We can talk through your six-hour timeline, then prepare an official Pixieset quote with the coverage, deliverables, and confirmed investment.";
+    }
+  }
+
   const priorityList = byId("priority-list");
   priorityList.innerHTML = "";
   proposal.priorities.forEach((priority, index) => {
@@ -253,8 +275,8 @@ function initializeProposal(clientData) {
 
   const handoffSteps = document.querySelectorAll(".quote-handoff > div strong");
   if (!hasQuote && handoffSteps.length >= 3) {
-    handoffSteps[0].textContent = "Review the elopement options";
-    handoffSteps[1].textContent = "Tell us what feels right";
+    handoffSteps[0].textContent = proposal.photographyOnly ? "Review photography coverage" : "Review the elopement options";
+    handoffSteps[1].textContent = proposal.photographyOnly ? "Discuss the six-hour timeline" : "Tell us what feels right";
     handoffSteps[2].textContent = "We’ll prepare your official quote";
   }
 
@@ -273,7 +295,9 @@ function initializeProposal(clientData) {
 
     steps[1].querySelector("h3").textContent = "Tell Us";
     steps[1].querySelector("p").textContent =
-      "Let us know which photography option feels right and whether you want to add film.";
+      proposal.photographyOnly
+        ? "Tell us about your preferred hours, the ceremony and reception timing, and any important moments you want photographed."
+        : "Let us know which photography option feels right and whether you want to add film.";
 
     steps[2].querySelector("h3").textContent = "Quote";
     steps[2].querySelector("p").textContent =
