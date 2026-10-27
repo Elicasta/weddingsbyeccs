@@ -133,4 +133,5 @@ window.CLIENT_PROPOSAL = {
     ]
   }
   }
+  }
 };
