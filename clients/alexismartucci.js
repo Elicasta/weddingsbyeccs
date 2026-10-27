@@ -61,5 +61,34 @@ window.CLIENT_PROPOSAL = {
     title: "The closest standard fit: Classic Collection.",
     copy:
       "With 75–150 guests and a celebration-focused evening, candid photography is the priority. Classic gives eight hours of coverage for $4,500, which is more time and investment than you originally requested. We can also discuss a custom six-hour scope rather than asking you to pay for coverage you do not need. Cinematic film remains optional."
+  },
+
+  collectionPresentation: {
+  "photo": {
+    "classic": {
+      "description": "A balanced photography experience centered on the party itself: the people, details, group portraits, toasts, and all the spontaneous moments as the celebration unfolds.",
+      "idealFor": [
+        "A marriage celebration with no traditional ceremony",
+        "Candid moments, family portraits, toasts, and dancing",
+        "Coverage of the main party"
+      ]
+    },
+    "full-day": {
+      "description": "Extended coverage of the party, from the early details through dinner, conversations, dancing, and unexpected moments throughout the celebration.",
+      "idealFor": [
+        "A longer event with many guests",
+        "More room for natural group portraits and candid coverage",
+        "An unhurried celebration"
+      ]
+    },
+    "legacy": {
+      "description": "The fullest photographic record of your celebration, covering the people and small moments that make this day yours from beginning to end.",
+      "idealFor": [
+        "An extended celebration",
+        "Multiple event locations or an extended timeline",
+        "More complete guest and candid coverage"
+      ]
+    }
   }
+}
 };
