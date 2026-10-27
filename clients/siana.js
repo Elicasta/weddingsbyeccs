@@ -1,5 +1,6 @@
 window.CLIENT_PROPOSAL = {
   slug: "siana",
+  quoteUrl: "https://ECCreativeStudio.pixieset.com/quote/qo_FhN9Dsg8cXGag4kwQj21Net1JF41",
 
   client: {
     firstName: "Siana",
@@ -29,11 +30,11 @@ window.CLIENT_PROPOSAL = {
     filmTitle: "Add the voices and movement if you want them.",
     filmIntro:
       "Film is completely optional. If hearing your vows and seeing the day move matters to you, these smaller film collections are designed to stay simple too.",
-    reserveEyebrow: "Your Next Step",
-    reserveTitle: "When you’re ready, we’ll build your quote.",
+    reserveEyebrow: "Your Official Quote",
+    reserveTitle: "Ready to choose?",
     reserveCopy:
-      "Siana, take a look through the two elopement options and the optional film coverage. When you know what feels closest to your day, we’ll prepare the official quote with your final selections.",
-    quoteButtonLabel: "Request Your Official Quote"
+      "Siana, explore the elopement collections and optional film coverage, then open your official quote to select your coverage and review your final investment.",
+    quoteButtonLabel: "Open Your Quote + Choose"
   },
 
   priorities: [
