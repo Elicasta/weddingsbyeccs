@@ -88,7 +88,49 @@ window.CLIENT_PROPOSAL = {
         "Multiple event locations or an extended timeline",
         "More complete guest and candid coverage"
       ]
-    }
+    },
+    "video": {
+  "classic-film": {
+    "description": "A cinematic film of your marriage celebration, with the laughter, dancing, loved ones, toasts, and atmosphere that make the evening yours.",
+    "includes": [
+      "8 hours of wedding cinematography",
+      "1 cinematographer",
+      "5–7 minute cinematic highlight film",
+      "Documentary edit tailored to your celebration, subject to the final quote",
+      "Professional audio for speeches and toasts",
+      "Drone cinematography when weather, venue, and regulations permit",
+      "Online cinematic film delivery"
+    ]
+  },
+  "luxe-film": {
+    "description": "A longer celebration film with more perspectives and room for speeches, dancing, candid interactions, and the moments in between.",
+    "includes": [
+      "10 hours of wedding cinematography",
+      "2 cinematographers",
+      "8–10 minute cinematic wedding film",
+      "Documentary celebration and toast edits, subject to the final quote",
+      "Professional multi-source audio",
+      "Drone cinematography when permitted",
+      "60–90 second social teaser",
+      "Priority film editing",
+      "Online cinematic film delivery"
+    ]
+  },
+  "legacy-film": {
+    "description": "An extended cinematic record of the celebration, from the first guests to the last moments of the night.",
+    "includes": [
+      "12 hours of wedding cinematography",
+      "2 cinematographers",
+      "10–12 minute cinematic wedding film",
+      "Documentary edits of speeches and party moments, subject to the final quote",
+      "Professional multi-source audio throughout the day",
+      "Drone cinematography when permitted",
+      "72-hour social teaser",
+      "Engagement film session",
+      "Priority film editing",
+      "Online cinematic film delivery"
+    ]
   }
 }
+  }
 };
