@@ -135,6 +135,17 @@ function requestQuoteHref(proposal) {
   return `mailto:hello@eccreativestudios.com?subject=${subject}&body=${body}`;
 }
 
+function withClientPresentation(item, type, proposal) {
+  // Personalize event language without changing shared pricing or contracted hours.
+  const overrides = proposal.collectionPresentation?.[type]?.[item.id];
+  if (!overrides) return item;
+  const displayed = { ...item };
+  for (const key of ["description", "idealFor", "includes", "tone", "subtitle"]) {
+    if (Object.prototype.hasOwnProperty.call(overrides, key)) displayed[key] = overrides[key];
+  }
+  return displayed;
+}
+
 function initializeProposal(clientData) {
   const proposal = {
     ...template,
@@ -184,13 +195,13 @@ function initializeProposal(clientData) {
 
   const photoList = byId("photo-list");
   photoList.innerHTML = proposal.photoCollections
-    .map((item) => collectionCard(item, "photo", proposal.recommendation.photoCollection))
+    .map((item) => collectionCard(withClientPresentation(item, "photo", proposal), "photo", proposal.recommendation.photoCollection))
     .join("");
 
   const videoList = byId("video-list");
   const visibleVideoAddons = proposal.videoAddons.filter((item) => item.id !== "none");
   videoList.innerHTML = visibleVideoAddons
-    .map((item) => collectionCard(item, "video", proposal.recommendation.videoAddon))
+    .map((item) => collectionCard(withClientPresentation(item, "video", proposal), "video", proposal.recommendation.videoAddon))
     .join("");
 
   const filmSection = byId("film");
