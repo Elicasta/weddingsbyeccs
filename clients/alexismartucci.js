@@ -88,8 +88,9 @@ window.CLIENT_PROPOSAL = {
         "Multiple event locations or an extended timeline",
         "More complete guest and candid coverage"
       ]
-    },
-    "video": {
+    }
+  },
+  "video": {
   "classic-film": {
     "description": "A cinematic film of your marriage celebration, with the laughter, dancing, loved ones, toasts, and atmosphere that make the evening yours.",
     "includes": [
@@ -131,6 +132,5 @@ window.CLIENT_PROPOSAL = {
       "Online cinematic film delivery"
     ]
   }
-}
   }
 };
