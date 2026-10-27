@@ -24,15 +24,15 @@ window.CLIENT_PROPOSAL = {
     photoEyebrow: "Chapter One: Celebration Photography",
     photoTitle: "Coverage for the party you are planning.",
     photoIntro:
-      "Our standard photography collections offer 8, 10, or 12 hours. You mentioned wanting around 6 hours, so the 8-hour Classic Collection is the closest published option. If six hours feels more appropriate, we can discuss a custom scope before finalizing your quote.",
+      "Your quote includes a four-hour intimate coverage option, eight-hour Essentials coverage, and ten-hour Full Day coverage. You mentioned considering six hours, so we can talk through which option best fits the party.",
     filmEyebrow: "Chapter Two: Optional Cinematic Film",
     filmTitle: "Bring the celebration back to life.",
     filmIntro:
-      "Film is an optional addition, not a requirement. Rather than focusing on a ceremony, we would plan around your guests, music, laughter, toasts, and the energy of the party. Any ceremony-specific film deliverables in our standard collections would need to be adapted and confirmed in your official quote.",
+      "You mentioned wanting a cinematic film if it fits your budget. Video is not priced in the current photography quote, but we can discuss a custom film option that focuses on the music, laughter, guests, and emotion of your celebration.",
     reserveEyebrow: "Your Next Step",
     reserveTitle: "Let's plan the coverage that fits.",
     reserveCopy:
-      "Alexis, we know you are considering six hours and a budget of $1,500–$3,000. Our published 8-hour photography collection begins at $4,500, so it is above that range. If you would like, we can talk through a shorter custom photography scope, with film optional, before putting together your official quote.",
+      "Alexis, your photography quote includes a four-hour collection at $2,500, eight hours at $4,250, and ten hours at $5,250. Since you originally mentioned six hours and a $1,500–$3,000 budget, we can talk through your priorities and find the best fit. Film is available to discuss separately.",
     quoteButtonLabel: "Discuss Your Coverage"
   },
 
@@ -56,82 +56,43 @@ window.CLIENT_PROPOSAL = {
   ],
 
   recommendation: {
-    photoCollection: "Classic Collection",
+    photoCollection: "Elopement Package // Intimate Moments, Big Memories!",
     videoAddon: null,
-    title: "The closest standard fit: Classic Collection.",
+    title: "Our starting point: intimate celebration coverage.",
     copy:
-      "With 75–150 guests and a celebration-focused evening, candid photography is the priority. Classic gives eight hours of coverage for $4,500, which is more time and investment than you originally requested. We can also discuss a custom six-hour scope rather than asking you to pay for coverage you do not need. Cinematic film remains optional."
+      "For a celebration at Alvarez Farms without a ceremony, the four-hour package at $2,500 is the closest option to your stated budget. Essentials at $4,250 gives more time for guests, dancing, and candid coverage. We can decide together whether four hours is enough or whether the extra coverage is worthwhile. Video is optional and would be quoted separately."
   },
 
-  collectionPresentation: {
-  "photo": {
-    "classic": {
-      "description": "A balanced photography experience centered on the party itself: the people, details, group portraits, toasts, and all the spontaneous moments as the celebration unfolds.",
-      "idealFor": [
-        "A marriage celebration with no traditional ceremony",
-        "Candid moments, family portraits, toasts, and dancing",
-        "Coverage of the main party"
-      ]
+  photoCollections: [
+    {
+      id: "intimate", numeral: "I.", name: "Elopement Package // Intimate Moments, Big Memories!",
+      hours: "4 Hours", price: 2500, priceDisplay: "$2,500.00", tone: "Focused + Intimate",
+      description: "Four hours for the heart of your celebration: the people, the party, and your favorite candid moments. We can tailor the schedule to the festivities rather than a traditional ceremony.",
+      idealFor: ["A shorter celebration", "Group portraits and candid moments", "A focused timeline and budget"],
+      includes: ["4 hours of photography", "1 photographer", "400 digital images", "Professional online gallery", "Pre-event consultation", "Key moments and candid coverage adapted to your celebration", "Discounted engagement session"]
     },
-    "full-day": {
-      "description": "Extended coverage of the party, from the early details through dinner, conversations, dancing, and unexpected moments throughout the celebration.",
-      "idealFor": [
-        "A longer event with many guests",
-        "More room for natural group portraits and candid coverage",
-        "An unhurried celebration"
-      ]
+    {
+      id: "essentials", numeral: "II.", name: "Essentials Package // Capturing Your Love Story",
+      hours: "8 Hours", price: 4250, priceDisplay: "$4,250.00", tone: "Extended + Story-Driven",
+      description: "Eight hours gives us room for guest arrivals, portraits, toasts, dancing, and the moments that make your marriage party yours.",
+      idealFor: ["An unhurried party", "Guests, candids, and dancing", "More of the celebration from beginning to end"],
+      includes: ["8 hours of photography", "1 photographer", "600–800 digital images", "Online gallery", "Engagement session included", "Pre-wedding consultation", "Coverage of key celebration moments"]
     },
-    "legacy": {
-      "description": "The fullest photographic record of your celebration, covering the people and small moments that make this day yours from beginning to end.",
-      "idealFor": [
-        "An extended celebration",
-        "Multiple event locations or an extended timeline",
-        "More complete guest and candid coverage"
-      ]
+    {
+      id: "full-day", numeral: "III.", name: "Full Day Package // Dawn Till Dusk",
+      hours: "10 Hours", price: 5250, priceDisplay: "$5,250.00", tone: "Complete + Unhurried",
+      description: "Ten hours for a fuller record of your celebration, from the earlier details and group portraits through the late-night party.",
+      idealFor: ["A longer celebration", "More time with family and friends", "Comprehensive candid and party coverage"],
+      includes: ["10 hours of photography", "2 photographers", "800–1,000 digital images", "Professional online gallery", "Pre-wedding consultation", "Engagement session included"]
     }
-  },
-  "video": {
-  "classic-film": {
-    "description": "A cinematic film of your marriage celebration, with the laughter, dancing, loved ones, toasts, and atmosphere that make the evening yours.",
-    "includes": [
-      "8 hours of wedding cinematography",
-      "1 cinematographer",
-      "5–7 minute cinematic highlight film",
-      "Documentary edit tailored to your celebration, subject to the final quote",
-      "Professional audio for speeches and toasts",
-      "Drone cinematography when weather, venue, and regulations permit",
-      "Online cinematic film delivery"
-    ]
-  },
-  "luxe-film": {
-    "description": "A longer celebration film with more perspectives and room for speeches, dancing, candid interactions, and the moments in between.",
-    "includes": [
-      "10 hours of wedding cinematography",
-      "2 cinematographers",
-      "8–10 minute cinematic wedding film",
-      "Documentary celebration and toast edits, subject to the final quote",
-      "Professional multi-source audio",
-      "Drone cinematography when permitted",
-      "60–90 second social teaser",
-      "Priority film editing",
-      "Online cinematic film delivery"
-    ]
-  },
-  "legacy-film": {
-    "description": "An extended cinematic record of the celebration, from the first guests to the last moments of the night.",
-    "includes": [
-      "12 hours of wedding cinematography",
-      "2 cinematographers",
-      "10–12 minute cinematic wedding film",
-      "Documentary edits of speeches and party moments, subject to the final quote",
-      "Professional multi-source audio throughout the day",
-      "Drone cinematography when permitted",
-      "72-hour social teaser",
-      "Engagement film session",
-      "Priority film editing",
-      "Online cinematic film delivery"
-    ]
-  }
-  }
-  }
+  ],
+
+  videoAddons: [
+    {
+      id: "custom-film", numeral: "I.", name: "Custom Celebration Film",
+      hours: "Coverage by arrangement", priceDisplay: "Quote on request", tone: "Optional + Personal",
+      description: "Interested in a cinematic record of the party? We can discuss coverage of guests, music, dancing, toasts, and emotional moments. Your current Pixieset quote does not include a film price, so we will confirm the film scope and investment separately.",
+      includes: ["Film coverage and deliverables tailored to your celebration", "Final hours, editing, and price confirmed before booking"]
+    }
+  ]
 };
