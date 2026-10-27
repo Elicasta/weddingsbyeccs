@@ -227,7 +227,7 @@ function initializeProposal(clientData) {
       faq[3].querySelector("summary").textContent = "How do we finalize our photography collection?";
       faq[3].querySelector("p").textContent = hasQuote
         ? "Review the coverage options here, then make your final choice in your official Pixieset quote."
-        : "We can talk through your six-hour timeline, then prepare an official Pixieset quote with the coverage, deliverables, and confirmed investment.";
+        : "We can review your ceremony and reception timeline, then finalize an official Pixieset quote with the photography coverage, deliverables, and investment.";
     }
   }
 
